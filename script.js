@@ -107,15 +107,54 @@ let attacks = {
 
 }
 
+let weaponAttacks = {
+    stick: {
+        damage: 5,
+        stamina: 10,
+        cooldown: 5000
+    },
+    dagger: {
+        damage: 7,
+        stamina: 15,
+        cooldown: 5000
+    },
+    bow: {
+        damage: 10,
+        stamina: 20,
+        cooldown: 7000
+    },
+    hammer: {
+        damage: 15,
+        stamina: 30,
+        cooldown: 10000
+    },
+    axe: {
+        damage: 20,
+        stamina: 35,
+        cooldown: 14000
+    },
+    sword: {
+        damage: 25,
+        stamina: 35,
+        cooldown: 18000
+    }
+}
+
 const playerHealth = document.getElementById("health");
 const enemyHealth = document.getElementById("enemy_health");
 const playerMana = document.getElementById("mana");
+const playerStamina = document.getElementById("stamina");
 const spells = document.querySelectorAll(".spell");
+const weapons = document.querySelectorAll(".weapon");
+
 
 function disableButtons(){
     spells.forEach(spell => {
         spell.disabled = true;
-    })
+    });
+    weapons.forEach(weapon => {
+        weapon.disabled = true;
+    });
 }
 
 window.onload = disableButtons;
@@ -132,14 +171,21 @@ function displayPlayerMana() {
     playerMana.innerHTML = "Mana: " + player.mana;
 }
 
+function displayPlayerStamina() {
+    playerStamina.innerHTML = "Stamina: " + player.stamina;
+}
 
 
 document.getElementById("fight").addEventListener("click", function () {
     currentEnemy = enemies.gnome;
     displayPlayerHealth();
     displayPlayerMana();
+    displayPlayerStamina();
     spells.forEach(spell => {
         spell.disabled = false;
+    })
+    weapons.forEach(weapon => {
+        weapon.disabled = false;
     })
     var gnomeFight =setInterval(function () {
         let damageEnemy = (Math.floor(Math.random() * currentEnemy.damage) + 1);
@@ -150,7 +196,7 @@ document.getElementById("fight").addEventListener("click", function () {
     displayEnemyHealth();
 
     
-        document.addEventListener("click", gnomeCondition)
+        document.addEventListener("click", gnomeCondition);
         
         function gnomeCondition() {
             if( enemies.gnome.health < 0 ){
@@ -450,7 +496,6 @@ function firestorm() {
 }
 
 function implosion() {
-    disableButtons();
     if (currentEnemy.resistance === "earth") {
         currentEnemy.health = Math.floor(currentEnemy.health - (attacks.implosion.damage) / 2 - (player.intelligence * 0.2));
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against earth magic so you do reduced damage"
@@ -458,12 +503,7 @@ function implosion() {
         currentEnemy.health = currentEnemy.health - attacks.implosion.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.implosion.damage + (player.intelligence * 0.2)) + " damage";
     }
-    setTimeout(function () {
-        spells.forEach(spell => {
-            spell.disabled = false;
-            document.getElementById("implosion").disabled = true;
-        })
-    }, 2000);
+    document.getElementById("implosion").disabled = true;
 
     setTimeout(function () {
         document.getElementById("implosion").disabled = false;
@@ -473,3 +513,78 @@ function implosion() {
     player.mana = player.mana - attacks.implosion.mana;
     displayPlayerMana();
 }
+
+function stick() {
+    currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.stick.damage + (player.strength * 0.2));
+    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.stick.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("stick").disabled = true;
+    setTimeout(function () {
+        document.getElementById("stick").disabled = false;
+    }, weaponAttacks.stick.cooldown);
+    displayEnemyHealth();
+    player.stamina = player.stamina - weaponAttacks.stick.stamina;
+    displayPlayerStamina();
+}
+
+function dagger() {
+    currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.dagger.damage + (player.strength * 0.2));
+    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.dagger.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("dagger").disabled = true;
+    setTimeout(function () {
+        document.getElementById("dagger").disabled = false;
+    }, weaponAttacks.dagger.cooldown);
+    displayEnemyHealth();
+    player.stamina = player.stamina - weaponAttacks.dagger.stamina;
+    displayPlayerStamina();
+}
+
+function bow() {
+    currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.bow.damage + (player.strength * 0.2));
+    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.bow.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("bow").disabled = true;
+    setTimeout(function () {
+        document.getElementById("bow").disabled = false;
+    }, weaponAttacks.bow.cooldown);
+    displayEnemyHealth();
+    player.stamina = player.stamina - weaponAttacks.bow.stamina;
+    displayPlayerStamina();
+}
+
+function hammer() {
+    currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.hammer.damage + (player.strength * 0.2));
+    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.hammer.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("hammer").disabled = true;
+    setTimeout(function () {
+        document.getElementById("hammer").disabled = false;
+    }, weaponAttacks.hammer.cooldown);
+    displayEnemyHealth();
+    player.stamina = player.stamina - weaponAttacks.hammer.stamina;
+    displayPlayerStamina();
+}
+
+function axe() {
+    currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.axe.damage + (player.strength * 0.2));
+    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.axe.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("axe").disabled = true;
+    setTimeout(function () {
+        document.getElementById("axe").disabled = false;
+    }, weaponAttacks.axe.cooldown);
+    displayEnemyHealth();
+    player.stamina = player.stamina - weaponAttacks.axe.stamina;
+    displayPlayerStamina();
+}
+
+function sword() {
+    currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.sword.damage + (player.strength * 0.2));
+    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.sword.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("sword").disabled = true;
+    setTimeout(function () {
+        document.getElementById("sword").disabled = false;
+    }, weaponAttacks.sword.cooldown);
+    displayEnemyHealth();
+    player.stamina = player.stamina - weaponAttacks.sword.stamina;
+    displayPlayerStamina();
+}
+
+
+
