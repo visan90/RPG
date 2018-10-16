@@ -1,0 +1,87 @@
+@mixin spell($background){
+    background: $background;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    -webkit-box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.75);
+}
+
+#changeStats{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    &__wrap {
+        width: 300px;
+        height:300px;
+        background-color: white;
+        text-align: center;
+        margin: auto;
+    }
+}
+.magicAttacks{
+    .group1 div{
+        &:nth-child(1){
+            @include spell(url(../img/fireball.png));
+        }
+        &:nth-child(2){
+            @include spell(url(../img/combust.png));
+        }
+        &:nth-child(3){
+            @include spell(url(../img/fire_storm.png));
+        }
+    }
+    .group2 div{
+        &:nth-child(1){
+            @include spell(url(../img/ice_bolt.png));
+        }
+        &:nth-child(2){
+            @include spell(url(../img/ice_rain.png));
+        }
+        &:nth-child(3){
+            @include spell(url(../img/blizzard.png));
+        }
+    }
+    .group3 div{
+        &:nth-child(1){
+            @include spell(url(../img/magic_arrow.png));
+        }
+        &:nth-child(2){
+            @include spell(url(../img/lightning_bolt.png));
+        }
+        &:nth-child(3){
+            @include spell(url(../img/tornado.png));
+        }
+    }
+    .group4 div{
+        &:nth-child(1){
+            @include spell(url(../img/earthquake.png));
+        }
+        &:nth-child(2){
+            @include spell(url(../img/meteor_strike.png));
+        }
+        &:nth-child(3){
+            @include spell(url(../img/implosion.png));
+        }
+    }
+    &__group{
+        display: flex;
+    }
+    &__elem{
+            
+        
+        button{
+            background: transparent;
+            border: none;
+            width: 50px;
+            height: 50px;
+        }
+    }
+   
+   
+}
