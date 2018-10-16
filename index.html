@@ -3,11 +3,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="dist/css/main.css">
     <title>Document</title>
 </head>
 <body>
+        <button id = "fight">start fight</button>
+        <p id= "finalMessage"></p>
    <div class = "wrap">
-       <button id = "fight">start fight</button>
        <button id = "fireball" onclick="fireball()" class = "spell">Fireball</button>
        <button id = "combust" onclick="combust()" class = "spell">Combust</button>
        <button id = "firestorm" onclick="firestorm()" class = "spell">Firestorm</button>
@@ -31,9 +33,25 @@
        <p id = "mana"></p>
        <p id = "stamina"></p>
        <p id = "enemy_health"></p>
+       <p id = "intelligence"></p>
+       <p id = "strength"></p>
        <p id = "damageInfo"></p>
        <p id = "damageReceived"></p>
+       
+
+       <div id ="changeStats">
+           <div id = "changeStats__wrap">
+           <p id = "description">Add points to your desired atribute:</p>
+           <p id="currentIntelligence"></p>
+           <button id = "addIntelligence" class = "addPoints">+</button>
+           <p id = "currentStrength"></p>
+           <button id = "addStrength" class = "addPoints">+</button>
+           <p id ="remainingPoints"></p>
+           <h3>Prepare for the next fight!</h3>
+           <button id = "close">Done</button>
+        </div>
+       </div>
    </div> 
-   <script src = "script.js"></script>
+   <script src = "dist/js/script.js"></script>
 </body>
 </html>
