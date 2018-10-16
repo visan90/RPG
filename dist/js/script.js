@@ -168,6 +168,7 @@ displayChangeStats.style.display = "none";
 function disableButtons(){
     spells.forEach(spell => {
         spell.disabled = true;
+        spell.style.background = "rgba(0,0,0,0.4)"
     });
     weapons.forEach(weapon => {
         weapon.disabled = true;
@@ -255,6 +256,7 @@ document.getElementById("fight").addEventListener("click", function () {
     refreshStats(); // am dat refresh si la enemy health
     spells.forEach(spell => {
         spell.disabled = false;
+        spell.style.background = "transparent"
     })
     weapons.forEach(weapon => {
         weapon.disabled = false;
@@ -354,10 +356,12 @@ function magicarrow() {
         currentEnemy.health = currentEnemy.health - attacks.magicarrow.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.magicarrow.damage + (player.intelligence * 0.2)) + " damage";
     }
-   
-    document.getElementById("magicarrow").disabled = true;
+    const spellAttack = document.getElementById("magicarrow");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("magicarrow").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent";  
     }, attacks.magicarrow.cooldown);
 
     displayEnemyHealth();
@@ -366,7 +370,6 @@ function magicarrow() {
 }
 
 function fireball() {
-    
     if (currentEnemy.resistance === "fire") {
         currentEnemy.health = Math.floor(currentEnemy.health - (attacks.fireball.damage) / 2 - (player.intelligence * 0.2));
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against fire magic so you do reduced damage"
@@ -374,10 +377,12 @@ function fireball() {
         currentEnemy.health = currentEnemy.health - attacks.fireball.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.fireball.damage + (player.intelligence * 0.2)) + " damage";
     }
-
-    document.getElementById("fireball").disabled = true;
+    const spellAttack = document.getElementById("fireball");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("fireball").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent";  
     }, attacks.fireball.cooldown);
 
     displayEnemyHealth();
@@ -393,10 +398,12 @@ function icebolt() {
         currentEnemy.health = currentEnemy.health - attacks.icebolt.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.icebolt.damage + (player.intelligence * 0.2)) + " damage";
     }
-
-    document.getElementById("icebolt").disabled = true;
+    const spellAttack = document.getElementById("icebolt");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("icebolt").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.icebolt.cooldown);
 
     displayEnemyHealth();
@@ -413,10 +420,12 @@ function earthquake() {
         currentEnemy.health = currentEnemy.health - attacks.earthquake.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.earthquake.damage + player.intelligence * 0.2) + " damage";
     }
-
-    document.getElementById("earthquake").disabled = true;
+    const spellAttack = document.getElementById("earthquake");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("earthuake").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.earthquake.cooldown);
     displayEnemyHealth();
     player.mana = player.mana - attacks.earthquake.mana;
@@ -431,10 +440,12 @@ function icerain() {
         currentEnemy.health = currentEnemy.health - attacks.icerain.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.icerain.damage + (player.intelligence * 0.2)) + " damage";
     }
-
-    document.getElementById("icerain").disabled = true;
+    const spellAttack = document.getElementById("icerain");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("icerain").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.icerain.cooldown);
 
     displayEnemyHealth();
@@ -450,10 +461,12 @@ function combust() {
         currentEnemy.health = currentEnemy.health - attacks.combust.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.combust.damage + (player.intelligence * 0.2)) + " damage";
     }
-
-    document.getElementById("combust").disabled = true;
+    const spellAttack = document.getElementById("combust");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("combust").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.combust.cooldown);
 
     displayEnemyHealth();
@@ -469,10 +482,12 @@ function meteorstrike() {
         currentEnemy.health = currentEnemy.health - attacks.meteorstrike.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.meteorstrike.damage + (player.intelligence * 0.2)) + " damage";
     }
-
-    document.getElementById("meteorstrike").disabled = true;
+    const spellAttack = document.getElementById("meteorstrike");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("meteorstrike").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.meteorstrike.cooldown);
 
     displayEnemyHealth();
@@ -488,10 +503,12 @@ function lightningbolt() {
         currentEnemy.health = currentEnemy.health - attacks.lightningbolt.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.lightningbolt.damage + (player.intelligence * 0.2)) + " damage";
     }
-
-    document.getElementById("lightningbolt").disabled = true;
+    const spellAttack = document.getElementById("lightningbolt");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("lightningbolt").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.lightningbolt.cooldown);
 
     displayEnemyHealth();
@@ -507,10 +524,12 @@ function tornado() {
         currentEnemy.health = currentEnemy.health - attacks.tornado.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.tornado.damage + (player.intelligence * 0.2)) + " damage";
     }
-
-    document.getElementById("tornado").disabled = true;
+    const spellAttack = document.getElementById("tornado");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("tornado").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.tornado.cooldown);
 
     displayEnemyHealth();
@@ -528,9 +547,12 @@ function blizzard() {
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.blizzard.damage + (player.intelligence * 0.2)) + " damage";
     }
 
-    document.getElementById("blizzard").disabled = true;
+    const spellAttack = document.getElementById("blizzard");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("blizzard").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.blizzard.cooldown);
 
     displayEnemyHealth();
@@ -546,9 +568,12 @@ function firestorm() {
         currentEnemy.health = currentEnemy.health - attacks.firestorm.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.firestorm.damage + (player.intelligence * 0.2)) + " damage";
     }
-    document.getElementById("firestorm").disabled = true;
+    const spellAttack = document.getElementById("firestorm");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("firestorm").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.firestorm.cooldown);
 
     displayEnemyHealth();
@@ -564,10 +589,12 @@ function implosion() {
         currentEnemy.health = currentEnemy.health - attacks.implosion.damage - (player.intelligence * 0.2);
         document.getElementById("damageInfo").innerHTML = "You did: " + (attacks.implosion.damage + (player.intelligence * 0.2)) + " damage";
     }
-    document.getElementById("implosion").disabled = true;
-
+    const spellAttack = document.getElementById("implosion");
+    spellAttack.disabled = true;
+    spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
-        document.getElementById("implosion").disabled = false;
+        spellAttack.disabled = false;
+        spellAttack.style.background = "transparent"; 
     }, attacks.implosion.cooldown);
 
     displayEnemyHealth();

@@ -7,49 +7,96 @@
     <title>Document</title>
 </head>
 <body>
-        <button id = "fight">start fight</button>
-        <p id= "finalMessage"></p>
-   <div class = "wrap">
-       <button id = "fireball" onclick="fireball()" class = "spell">Fireball</button>
-       <button id = "combust" onclick="combust()" class = "spell">Combust</button>
-       <button id = "firestorm" onclick="firestorm()" class = "spell">Firestorm</button>
-       <button id = "icebolt" onclick="icebolt()" class = "spell">Ice Bolt</button>
-       <button id = "icerain" onclick="icerain()" class = "spell">Ice Rain</button>
-       <button id = "blizzard" onclick="blizzard()" class = "spell">Blizzard</button>
-       <button id = "magicarrow" onclick="magicarrow()" class = "spell">Magic Arrow</button>
-       <button id = "lightningbolt" onclick="lightningbolt()" class = "spell">Lightning Bolt</button>
-       <button id = "tornado" onclick="tornado()" class = "spell">Tornado</button>
-       <button id = "earthquake" onclick="earthquake()" class = "spell">Earthquake</button>
-       <button id = "meteorstrike" onclick="meteorstrike()" class = "spell">Meteor Strike</button>
-       <button id = "implosion" onclick="implosion()" class = "spell">Implosion</button>
-       <button id = "stick" onclick="stick()" class = "weapon">Stick</button>
-       <button id = "dagger" onclick="dagger()" class = "weapon">Dagger</button>
-       <button id = "bow" onclick="bow()" class = "weapon">Bow</button>
-       <button id = "hammer" onclick="hammer()" class = "weapon">Hammer</button>
-       <button id = "axe" onclick="axe()" class = "weapon">Axe</button>
-       <button id = "sword" onclick="sword()" class = "weapon">Sword</button>
+    <button id = "fight">start fight</button>
+    <p id= "finalMessage"></p>
 
-       <p id = "health"></p>
-       <p id = "mana"></p>
-       <p id = "stamina"></p>
-       <p id = "enemy_health"></p>
-       <p id = "intelligence"></p>
-       <p id = "strength"></p>
-       <p id = "damageInfo"></p>
-       <p id = "damageReceived"></p>
-       
+   <div class = "wrap">
+       <div class = "wrap__grid">
+            <div id = "enemy">
+                <img id = "enemy__img" src = "">
+            </div>
+            <div id = "stats">
+                    <p id = "health"></p>
+                    <p id = "mana"></p>
+                    <p id = "stamina"></p>
+                    <p id = "enemy_health"></p>
+            </div>
+            <div class = "magicAttacks">
+                <div class = "magicAttacks__group group1">
+                    <div class = "magicAttacks__elem">
+                        <button id = "fireball" onclick="fireball()" class = "spell"></button>
+                    </div>
+                    <div class = "magicAttacks__elem">
+                        <button id = "combust" onclick="combust()" class = "spell"></button>
+                    </div>
+                    <div class = "magicAttacks__elem">
+                        <button id = "firestorm" onclick="firestorm()" class = "spell"></button>
+                    </div>
+                </div>
+                <div class = "magicAttacks__group group2">
+                    <div class = "magicAttacks__elem">
+                        <button id = "icebolt" onclick="icebolt()" class = "spell"></button>
+                    </div>
+                    <div class = "magicAttacks__elem">
+                        <button id = "icerain" onclick="icerain()" class = "spell"></button>
+                    </div>
+                    <div class = "magicAttacks__elem">
+                        <button id = "blizzard" onclick="blizzard()" class = "spell"></button>
+                    </div>
+                </div>
+                <div class = "magicAttacks__group group3">
+                    <div class = "magicAttacks__elem">
+                        <button id = "magicarrow" onclick="magicarrow()" class = "spell"></button>
+                    </div>
+                    <div class = "magicAttacks__elem">
+                        <button id = "lightningbolt" onclick="lightningbolt()" class = "spell"></button>
+                    </div>
+                    <div class = "magicAttacks__elem">
+                        <button id = "tornado" onclick="tornado()" class = "spell"></button>
+                    </div>
+                </div>
+                <div class = "magicAttacks__group group4">
+                    <div class = "magicAttacks__elem">
+                        <button id = "earthquake" onclick="earthquake()" class = "spell"></button>
+                    </div>
+                    <div class = "magicAttacks__elem">
+                        <button id = "meteorstrike" onclick="meteorstrike()" class = "spell"></button>
+                    </div>
+                    <div class = "magicAttacks__elem">
+                        <button id = "implosion" onclick="implosion()" class = "spell"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "wrap__grid">
+            <div id = "weaponsAttacks">
+                <button id = "stick" onclick="stick()" class = "weapon"></button>
+                <button id = "dagger" onclick="dagger()" class = "weapon"></button>
+                <button id = "bow" onclick="bow()" class = "weapon"></button>
+                <button id = "hammer" onclick="hammer()" class = "weapon"></button>
+                <button id = "axe" onclick="axe()" class = "weapon"></button>
+                <button id = "sword" onclick="sword()" class = "weapon"></button>
+            </div>
+        <div id = "info">
+            <p id = "intelligence"></p>
+            <p id = "strength"></p>
+            <p id = "damageInfo"></p>
+            <p id = "damageReceived"></p>
+        </div>
+        </div>
 
        <div id ="changeStats">
            <div id = "changeStats__wrap">
-           <p id = "description">Add points to your desired atribute:</p>
-           <p id="currentIntelligence"></p>
-           <button id = "addIntelligence" class = "addPoints">+</button>
-           <p id = "currentStrength"></p>
-           <button id = "addStrength" class = "addPoints">+</button>
-           <p id ="remainingPoints"></p>
-           <h3>Prepare for the next fight!</h3>
-           <button id = "close">Done</button>
-        </div>
+                <p id = "description">Add points to your desired atribute:</p>
+                <p id="currentIntelligence"></p>
+                <button id = "addIntelligence" class = "addPoints">+</button>
+                <p id = "currentStrength"></p>
+                <button id = "addStrength" class = "addPoints">+</button>
+                <p id ="remainingPoints"></p>
+                <h3>Prepare for the next fight!</h3>
+                <button id = "close">Done</button>
+            </div>
        </div>
    </div> 
    <script src = "dist/js/script.js"></script>
