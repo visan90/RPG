@@ -7,7 +7,24 @@
     -moz-box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.75);
     box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.75);
 }
-
+@mixin button(){
+    background: transparent;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+$breakpoint_sm: 750px;
+// #health{
+//     height: 15px;
+//     background: red;
+//     text-align: center;
+// }
+#stats{
+    margin: 10px 0;
+    p{
+        margin: 0;
+    }
+}
 #changeStats{
     width: 100%;
     height: 100%;
@@ -24,8 +41,27 @@
         margin: auto;
     }
 }
+.wrap{
+    display: grid;
+    grid-template-columns: 500px 200px;
+    grid-column-gap: 50px;
+    justify-content: center;
+    @media (max-width: $breakpoint_sm){
+        grid-template-columns: auto;
+    }
+}
+#enemy{
+    &__img{
+        border: 1px dashed #000;
+        width: 100%;
+        height: auto;
+    }
+}
 .magicAttacks{
+    border: 1px dashed #000;
+    padding: 20px;
     .group1 div{
+        margin-bottom: 20px;
         &:nth-child(1){
             @include spell(url(../img/fireball.png));
         }
@@ -35,19 +71,18 @@
         &:nth-child(3){
             @include spell(url(../img/fire_storm.png));
         }
-    }
-    .group2 div{
-        &:nth-child(1){
+        &:nth-child(4){
             @include spell(url(../img/ice_bolt.png));
         }
-        &:nth-child(2){
+        &:nth-child(5){
             @include spell(url(../img/ice_rain.png));
         }
-        &:nth-child(3){
+        &:nth-child(6){
             @include spell(url(../img/blizzard.png));
         }
     }
-    .group3 div{
+
+    .group2 div{
         &:nth-child(1){
             @include spell(url(../img/magic_arrow.png));
         }
@@ -57,31 +92,65 @@
         &:nth-child(3){
             @include spell(url(../img/tornado.png));
         }
-    }
-    .group4 div{
-        &:nth-child(1){
+        &:nth-child(4){
             @include spell(url(../img/earthquake.png));
         }
-        &:nth-child(2){
+        &:nth-child(5){
             @include spell(url(../img/meteor_strike.png));
         }
-        &:nth-child(3){
+        &:nth-child(6){
             @include spell(url(../img/implosion.png));
+        }
+    }
+
+    &__group{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__elem{
+        button{
+            @include button;
+        }
+    } 
+}
+.weaponsAttacks{
+    border: 1px dashed #000;
+    padding: 20px;
+    .group3 div{
+        
+        &:nth-child(1){
+            @include spell(url(../img/stick.png));
+        }
+        &:nth-child(2){
+            @include spell(url(../img/dagger.png));
+        }
+        
+    }
+    .group4 div{
+        margin: 20px auto;
+        &:nth-child(1){
+            @include spell(url(../img/bow.png));
+        }
+        &:nth-child(2){
+            @include spell(url(../img/hammer.png));
+        }
+    }
+    .group5 div{
+        
+        &:nth-child(1){
+            @include spell(url(../img/axe.png));
+        }
+        &:nth-child(2){
+            @include spell(url(../img/sword.png));
         }
     }
     &__group{
         display: flex;
+        justify-content: space-around;
     }
     &__elem{
-            
-        
         button{
-            background: transparent;
-            border: none;
-            width: 50px;
-            height: 50px;
+            @include button;
         }
     }
-   
-   
 }
