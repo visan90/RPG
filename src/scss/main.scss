@@ -14,11 +14,27 @@
     height: 50px;
 }
 $breakpoint_sm: 750px;
-// #health{
-//     height: 15px;
-//     background: red;
-//     text-align: center;
-// }
+#health{
+    height: 15px;
+    background: green;
+    text-align: center;
+}
+#mana {
+    height: 15px;
+    background: blue;
+    text-align: center;
+
+}
+#stamina {
+    height: 15px;
+    background: orange;
+    text-align: center;
+}
+#enemyHealth {
+    height: 15px;
+    background: red;
+    text-align: center;
+}
 #stats{
     margin: 10px 0;
     p{
