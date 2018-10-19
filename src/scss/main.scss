@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'disposableDroid';
+    src: url(../fonts/DisposableDroidBB.ttf);
+}
+@font-face {
+    font-family: 'ancient';
+    src: url(../fonts/AncientModernTales.otf), url(../fonts/AncientModernTales.woff);
+}
+
 @mixin spell($background){
     background: $background;
     width: 50px;
@@ -12,6 +21,18 @@
     height: 50px;
 }
 $breakpoint_sm: 750px;
+
+#fight{
+    font-family: 'ancient';
+    font-size: 50px;
+    background: url(../img/button.png);
+    color: #fff;
+    border: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 30%;
+}
 #health{
     height: 15px;
     background: green;
@@ -57,10 +78,12 @@ $breakpoint_sm: 750px;
     }
 }
 .wrap{
+    background: rgba(0,0,0,0.4);
     display: grid;
     grid-template-columns: 500px 200px;
     grid-column-gap: 50px;
     justify-content: center;
+    font-family: 'disposableDroid';
     @media (max-width: $breakpoint_sm){
         grid-template-columns: auto;
     }
@@ -127,6 +150,9 @@ $breakpoint_sm: 750px;
             @include button;
         }
     } 
+}
+#info{
+    font-size: 18px;
 }
 .weaponsAttacks{
     border: 1px dashed #000;

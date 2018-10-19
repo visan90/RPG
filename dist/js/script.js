@@ -255,9 +255,12 @@ let currentPlayerHealth = 150;
 let currentPlayerMana = 150;
 let currentPlayerStamina = 150;
 let currentEnemyHealth = 100;
+const enemyImage = document.getElementById("enemyImg");
 
 document.getElementById("fight").addEventListener("click", function () {
+    document.getElementById("fight").style.display = "none";
     currentEnemy = enemies.gnome;
+    document.querySelector(".wrap").style.background = "transparent";
     refreshStats(); // am dat refresh si la enemy health
     spells.forEach(spell => {
         spell.disabled = false;
@@ -309,6 +312,7 @@ document.getElementById("fight").addEventListener("click", function () {
                 currentPlayerStamina = 200;
                 currentEnemyHealth = 300;
                 remainingPoints = 5;
+                enemyImage.src = "dist/img/ice_elemental.png";
                 changeStats();
                 document.removeEventListener("click", lizardCondition ); // de revizuit
                 document.getElementById("close").onclick = function (){
@@ -351,6 +355,7 @@ document.getElementById("fight").addEventListener("click", function () {
         function airCondition(){
             if(enemies.wind_elemental.health <= 0){
                 document.removeEventListener("click", airCondition ); 
+                document.getElementById("fight").style.display = "block";
                 document.getElementById("fight").innerHTML = "Play Again";
                 document.querySelector(".wrap").style.display = "none";
                 document.getElementById("finalMessage").innerHTML = "Congratulations, you won!";
