@@ -260,7 +260,7 @@ const enemyImage = document.getElementById("enemyImg");
 document.getElementById("fight").addEventListener("click", function () {
     document.getElementById("fight").style.display = "none";
     currentEnemy = enemies.gnome;
-    document.querySelector(".wrap").style.background = "transparent";
+    document.querySelector("#mask").style.display = "none";
     refreshStats(); // am dat refresh si la enemy health
     spells.forEach(spell => {
         spell.disabled = false;
@@ -383,7 +383,7 @@ function magicarrow() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against air magic so you do reduced damage. You did: " + Math.floor((attacks.magicarrow.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.magicarrow.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.magicarrow.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Magic Arrow did: " + Math.floor(attacks.magicarrow.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("magicarrow");
     spellAttack.disabled = true;
@@ -404,7 +404,7 @@ function fireball() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against fire magic so you do reduced damage. You did: " + Math.floor((attacks.fireball.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.fireball.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.fireball.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Fireball did: " + Math.floor(attacks.fireball.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("fireball");
     spellAttack.disabled = true;
@@ -425,7 +425,7 @@ function icebolt() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against water magic so you do reduced damage. You did: " + Math.floor((attacks.icebolt.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.icebolt.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.icebolt.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Ice Bolt did: " + Math.floor(attacks.icebolt.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("icebolt");
     spellAttack.disabled = true;
@@ -447,7 +447,7 @@ function earthquake() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against earth magic so you do reduced damage. You did: " + Math.floor((attacks.earthquake.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.earthquake.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.earthquake.damage + player.intelligence * 0.2) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Earthquake did: " + Math.floor(attacks.earthquake.damage + player.intelligence * 0.2) + " damage";
     }
     const spellAttack = document.getElementById("earthquake");
     spellAttack.disabled = true;
@@ -467,7 +467,7 @@ function icerain() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against water magic so you do reduced damage. You did: " + Math.floor((attacks.icerain.damage) / 2 + (player.intelligence * 0.2)) + " damage"
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.icerain.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.icerain.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Ice Rain did: " + Math.floor(attacks.icerain.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("icerain");
     spellAttack.disabled = true;
@@ -488,7 +488,7 @@ function combust() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against fire magic so you do reduced damage. You did: " + Math.floor((attacks.combust.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.combust.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.combust.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Combust did: " + Math.floor(attacks.combust.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("combust");
     spellAttack.disabled = true;
@@ -509,7 +509,7 @@ function meteorstrike() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against earth magic so you do reduced damage. You did: " + ((attacks.meteorstrike.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.meteorstrike.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.meteorstrike.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Meteor Strike did: " + Math.floor(attacks.meteorstrike.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("meteorstrike");
     spellAttack.disabled = true;
@@ -530,7 +530,7 @@ function lightningbolt() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against air magic so you do reduced damage. You did: " + Math.floor((attacks.lightningbolt.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.lightningbolt.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.lightningbolt.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Lightning Bolt did: " + Math.floor(attacks.lightningbolt.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("lightningbolt");
     spellAttack.disabled = true;
@@ -551,7 +551,7 @@ function tornado() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against air magic so you do reduced damage. You did: " + Math.floor((attacks.tornado.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.tornado.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.tornado.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Tornado did: " + Math.floor(attacks.tornado.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("tornado");
     spellAttack.disabled = true;
@@ -573,7 +573,7 @@ function blizzard() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against water magic so you do reduced damage. You did: " + Math.floor((attacks.blizzard.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.blizzard.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.blizzard.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Blizzard did: " + Math.floor(attacks.blizzard.damage + (player.intelligence * 0.2)) + " damage";
     }
 
     const spellAttack = document.getElementById("blizzard");
@@ -595,7 +595,7 @@ function firestorm() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against fire magic so you do reduced damage. You did: " + Math.floor((attacks.firestorm.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.firestorm.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.firestorm.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Firestorm did: " + Math.floor(attacks.firestorm.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("firestorm");
     spellAttack.disabled = true;
@@ -616,7 +616,7 @@ function implosion() {
         document.getElementById("damageInfo").innerHTML = "It seems the creature has a resistance against earth magic so you do reduced damage. You did: " + Math.floor((attacks.implosion.damage) / 2 + (player.intelligence * 0.2)) + " damage";
     } else {
         currentEnemy.health = currentEnemy.health - Math.floor(attacks.implosion.damage + (player.intelligence * 0.2));
-        document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(attacks.implosion.damage + (player.intelligence * 0.2)) + " damage";
+        document.getElementById("damageInfo").innerHTML = "Implosion did: " + Math.floor(attacks.implosion.damage + (player.intelligence * 0.2)) + " damage";
     }
     const spellAttack = document.getElementById("implosion");
     spellAttack.disabled = true;
@@ -634,7 +634,7 @@ function implosion() {
 function stick() {
     const weaponAttack = document.getElementById("stick");
     currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.stick.damage + (player.strength * 0.2));
-    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.stick.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("damageInfo").innerHTML = "The stick did: " + Math.floor(weaponAttacks.stick.damage + (player.strength * 0.2)) + " damage";
     weaponAttack.disabled = true;
     weaponAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
@@ -649,7 +649,7 @@ function stick() {
 function dagger() {
     const weaponAttack = document.getElementById("dagger");
     currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.dagger.damage + (player.strength * 0.2));
-    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.dagger.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("damageInfo").innerHTML = "The dagger did: " + Math.floor(weaponAttacks.dagger.damage + (player.strength * 0.2)) + " damage";
     weaponAttack.disabled = true;
     weaponAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
@@ -664,7 +664,7 @@ function dagger() {
 function bow() {
     const weaponAttack = document.getElementById("bow");
     currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.bow.damage + (player.strength * 0.2));
-    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.bow.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("damageInfo").innerHTML = "The bow did: " + Math.floor(weaponAttacks.bow.damage + (player.strength * 0.2)) + " damage";
     weaponAttack.disabled = true;
     weaponAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
@@ -679,7 +679,7 @@ function bow() {
 function hammer() {
     const weaponAttack = document.getElementById("hammer");
     currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.hammer.damage + (player.strength * 0.2));
-    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.hammer.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("damageInfo").innerHTML = "The hammer did: " + Math.floor(weaponAttacks.hammer.damage + (player.strength * 0.2)) + " damage";
     weaponAttack.disabled = true;
     weaponAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
@@ -694,7 +694,7 @@ function hammer() {
 function axe() {
     const weaponAttack = document.getElementById("axe");
     currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.axe.damage + (player.strength * 0.2));
-    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.axe.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("damageInfo").innerHTML = "The axe did: " + Math.floor(weaponAttacks.axe.damage + (player.strength * 0.2)) + " damage";
     weaponAttack.disabled = true;
     weaponAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
@@ -709,7 +709,7 @@ function axe() {
 function sword() {
     const weaponAttack = document.getElementById("sword");
     currentEnemy.health = currentEnemy.health - Math.floor(weaponAttacks.sword.damage + (player.strength * 0.2));
-    document.getElementById("damageInfo").innerHTML = "You did: " + Math.floor(weaponAttacks.sword.damage + (player.strength * 0.2)) + " damage";
+    document.getElementById("damageInfo").innerHTML = "The sword did: " + Math.floor(weaponAttacks.sword.damage + (player.strength * 0.2)) + " damage";
     weaponAttack.disabled = true;
     weaponAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
