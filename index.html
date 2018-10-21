@@ -16,11 +16,10 @@
                 <img id = "enemyImg" src = "https://via.placeholder.com/500x350">
             </div>
             <div id = "stats">
-                <div id = "health">Health</div>
-                <p id = "mana">Mana</p>
-                <p id = "stamina">Stamina</p>
-                <p id = "enemyHealth">Enemy Health</p>
-                
+                <div class = "gray"><p id = "health">Health</p></div>
+                <div class = "gray"><p id = "mana">Mana</p></div>
+                <div class = "gray"><p id = "stamina">Stamina</p></div>
+                <div class = "gray"><p id = "enemyHealth">Enemy Health</p></div> 
             </div>
             <div class = "magicAttacks">
                 <div class = "magicAttacks__group group1">
@@ -104,6 +103,7 @@
 
        <div id ="changeStats">
            <div id = "changeStats__wrap">
+                <h3>Congratulations, you won the fight</h3>
                 <p id = "description">Add points to your desired atribute:</p>
                 <p id="currentIntelligence"></p>
                 <p>Increases spell damage</p>
@@ -116,6 +116,7 @@
                 <button id = "close">Done</button>
             </div>
        </div>
+       <p id ="lost">You lost!</p>
        <div id ="mask"></div>
    </div> 
    <script src = "dist/js/script.js"></script>

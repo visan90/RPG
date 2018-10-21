@@ -46,45 +46,64 @@ body {
 #health{
     height: 15px;
     background: green;
-    text-align: center;
+    text-align: left;
 }
 #mana {
     height: 15px;
     background: blue;
-    text-align: center;
+    text-align: left;
 
 }
 #stamina {
     height: 15px;
     background: orange;
-    text-align: center;
+    text-align: left;
 }
 #enemyHealth {
     height: 15px;
     background: red;
-    text-align: center;
+    text-align: left;
 }
 #stats{
     margin: 10px 0;
     font-size: 14px;
     p{
         margin: 0;
+        white-space: nowrap;
     }
 }
 #changeStats{
     width: 100%;
     height: 100%;
-    background-color: rgb(0,0,0);
+    background: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
     position: fixed;
     top: 0;
     left: 0;
 
     &__wrap {
         width: 300px;
-        height:300px;
-        background-color: white;
+        height:400px;
+        background: rgba(255,255,255,0.7);
         text-align: center;
-        margin: auto;
+        margin: 10% auto;
+    }
+    .addPoints{
+        font-family: 'disposableDroid';
+        font-size: 20px;
+        &:hover{
+            cursor: url("../img/cursor_hand.png"), auto;  
+        }
+    }
+    #close{
+        font-family: 'disposableDroid';
+        font-size: 20px;
+        &:hover{
+            cursor: url("../img/cursor_hand.png"), auto;  
+        }
+
     }
 }
 .wrap{
@@ -214,12 +233,32 @@ body {
         }
     }
 }
+#lost{
+    display:none;
+    font-family: 'ancient';
+    color:#fff;
+    z-index:999;
+    position:absolute;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 60px;
+    top:5%;
+    
 
+}
 #mask{
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0, 0.5);
+    background: rgba(0,0,0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.gray{
+    background: grey;
+    border-bottom: 1px solid rgb(54, 53, 53);
 }

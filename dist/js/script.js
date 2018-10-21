@@ -16,8 +16,6 @@ let enemies = {
         resistance: 'earth',
         timeOut: 4000,
         damage: 10,
-
-
     },
     fire_lizard: {
         health: 200,
@@ -278,9 +276,22 @@ document.getElementById("fight").addEventListener("click", function () {
         document.getElementById("damageReceived").innerHTML = "The enemy did: " + damageEnemy + " damage";
         displayPlayerHealth();
         document.getElementById("health").style.width = player.health * (500 / currentPlayerHealth) + "px";
+        if(currentEnemy.health > 0 && player.health <= 0) {
+            document.getElementById("mask").style.display = "block";
+            document.getElementById("mask").style.backgroundImage= "url('dist/img/background.jpg')";
+            document.getElementById("lost").style.display = "block";
+            document.getElementById("fight").style.display = "block";
+            document.getElementById("fight").innerHTML = "Play Again";
+            document.getElementById("fight").addEventListener("click", function (){
+                window.location.reload();
+            }, {once:true})
+
+        }
+        
+
     }, currentEnemy.timeOut);
         displayEnemyHealth();
-
+        
     
         document.addEventListener("click", gnomeCondition);
         function gnomeCondition() {
@@ -375,8 +386,9 @@ document.addEventListener("click", function (){
     document.getElementById("mana").style.width = player.mana * (500 / currentPlayerMana) + "px";
     document.getElementById("stamina").style.width = player.stamina * (500 / currentPlayerStamina) + "px";
     document.getElementById("enemyHealth").style.width = currentEnemy.health * (500 / currentEnemyHealth) + "px";
-    
-})
+    document.getElementById("health").style.width = player.health * (500 / currentPlayerHealth) + "px";
+});
+
 function magicarrow() {
     if (currentEnemy.resistance === "air") {
         currentEnemy.health = currentEnemy.health - Math.floor((attacks.magicarrow.damage) / 2 + (player.intelligence * 0.2));
@@ -722,3 +734,22 @@ function sword() {
 }
 
 
+var config = { attributes: true, childList: true, subtree: true };
+
+
+var callback = function(observer) {
+    if( player.mana < attacks.implosion.mana){
+        const spellAttack = document.getElementById("implosion");
+        spellAttack.disabled = true;
+        spellAttack.style.background = "rgba(0,0,0,0.4)";
+    }
+    if( player.mana < attacks.fireball.mana){
+        const spellAttack = document.getElementById("fireball");
+        spellAttack.disabled = true;
+        spellAttack.style.background = "rgba(0,0,0,0.4)";
+    }
+
+};
+
+var observer = new MutationObserver(callback);
+observer.observe(playerMana, config);
