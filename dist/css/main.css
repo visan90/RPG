@@ -15,6 +15,13 @@ body {
   cursor: url("../img/cursor.png"), auto;
 }
 
+#finalMessage {
+  text-align: center;
+  font-family: 'disposableDroid';
+  font-size: 50px;
+  margin-top: 5%;
+}
+
 #fight {
   font-family: 'ancient';
   z-index: 999;

@@ -15,7 +15,7 @@ let enemies = {
         level: 1,
         resistance: 'earth',
         timeOut: 4000,
-        damage: 10,
+        damage: 20,
     },
     fire_lizard: {
         health: 200,
@@ -138,12 +138,12 @@ let weaponAttacks = {
         cooldown: 10000
     },
     axe: {
-        damage: 52000,
+        damage: 20,
         stamina: 35,
         cooldown: 14000
     },
     sword: {
-        damage: 52222,
+        damage: 25,
         stamina: 35,
         cooldown: 18000
     }
@@ -249,6 +249,16 @@ function refreshStats(){
     displayPlayerStrength();
 }
 
+function enableAttacks(){
+    spells.forEach(spell => {
+        spell.disabled = false;
+        spell.style.background = "transparent";
+    });
+    weapons.forEach(weapon => {
+        weapon.disabled = false;
+        weapon.style.background = "transparent";
+    });
+}
 let currentPlayerHealth = 150;
 let currentPlayerMana = 150;
 let currentPlayerStamina = 150;
@@ -260,18 +270,11 @@ document.getElementById("fight").addEventListener("click", function () {
     currentEnemy = enemies.gnome;
     document.querySelector("#mask").style.display = "none";
     refreshStats(); // am dat refresh si la enemy health
-    spells.forEach(spell => {
-        spell.disabled = false;
-        spell.style.background = "transparent";
-    })
-    weapons.forEach(weapon => {
-        weapon.disabled = false;
-        weapon.style.background = "transparent";
-    })
+    enableAttacks();
 
     
     var enemyFight =setInterval(function () {
-        let damageEnemy = (Math.floor(Math.random() * currentEnemy.damage) + 1);
+        let damageEnemy = (Math.floor(Math.random() * (currentEnemy.damage - currentEnemy.damage/2 + 1)) + currentEnemy.damage/2);
         player.health = player.health - damageEnemy;
         document.getElementById("damageReceived").innerHTML = "The enemy did: " + damageEnemy + " damage";
         displayPlayerHealth();
@@ -308,6 +311,7 @@ document.getElementById("fight").addEventListener("click", function () {
                     player.health = 300;
                     player.stamina = 150;
                     refreshStats();
+                    enableAttacks();
                     document.getElementById("damageReceived").innerHTML = "";
                     document.getElementById("damageInfo").innerHTML = "";
                     displayChangeStats.style.display = "none";
@@ -332,6 +336,7 @@ document.getElementById("fight").addEventListener("click", function () {
                     player.health = 400;
                     player.stamina = 200;
                     refreshStats();
+                    enableAttacks();
                     document.getElementById("damageReceived").innerHTML = "";
                     document.getElementById("damageInfo").innerHTML = "";
                     displayChangeStats.style.display = "none";
@@ -352,6 +357,7 @@ document.getElementById("fight").addEventListener("click", function () {
                     player.health = 500;
                     player.stamina = 200;
                     refreshStats();
+                    enableAttacks();
                     document.getElementById("damageReceived").innerHTML = "";
                     document.getElementById("damageInfo").innerHTML = "";
                     displayChangeStats.style.display = "none";
@@ -637,7 +643,6 @@ function implosion() {
         spellAttack.disabled = false;
         spellAttack.style.background = "transparent"; 
     }, attacks.implosion.cooldown);
-
     displayEnemyHealth();
     player.mana = player.mana - attacks.implosion.mana;
     displayPlayerMana();
@@ -734,22 +739,129 @@ function sword() {
 }
 
 
-var config = { attributes: true, childList: true, subtree: true };
+// var config = { attributes: true, childList: true, subtree: true };
 
 
-var callback = function(observer) {
-    if( player.mana < attacks.implosion.mana){
-        const spellAttack = document.getElementById("implosion");
-        spellAttack.disabled = true;
-        spellAttack.style.background = "rgba(0,0,0,0.4)";
+// var callback = function(observer) {
+//     if( player.mana < attacks.implosion.mana){
+//         const spellAttack = document.getElementById("implosion");
+//         spellAttack.disabled = true;
+//         spellAttack.style.background = "rgba(0,0,0,0.4)";
+//     }
+//     if( player.mana < attacks.fireball.mana){
+//         const spellAttack = document.getElementById("fireball");
+//         spellAttack.disabled = true;
+//         spellAttack.style.background = "rgba(0,0,0,0.4)";
+//     }
+
+// };
+
+// var observer = new MutationObserver(callback);
+// observer.observe(playerMana, config);
+
+
+setInterval(function(){
+    
+    if(player.mana < attacks.implosion.mana){
+       document.getElementById("implosion").disabled = true;
+       document.getElementById("implosion").style.background = "rgba(0,0,0,0.4)";
     }
-    if( player.mana < attacks.fireball.mana){
-        const spellAttack = document.getElementById("fireball");
-        spellAttack.disabled = true;
-        spellAttack.style.background = "rgba(0,0,0,0.4)";
+
+      
+    if(player.mana < attacks.fireball.mana){
+        document.getElementById("fireball").disabled = true;
+        document.getElementById("fireball").style.background = "rgba(0,0,0,0.4)";
+    }
+    
+
+     if(player.mana < attacks.blizzard.mana){
+        document.getElementById("blizzard").disabled = true;
+        document.getElementById("blizzard").style.background = "rgba(0,0,0,0.4)";
+    }
+     
+
+     if(player.mana < attacks.icerain.mana){
+        document.getElementById("icerain").disabled = true;
+        document.getElementById("icerain").style.background = "rgba(0,0,0,0.4)";
+    }
+    
+
+     if(player.mana < attacks.earthquake.mana){
+        document.getElementById("earthquake").disabled = true;
+        document.getElementById("earthquake").style.background = "rgba(0,0,0,0.4)";
+    }
+    
+
+     if(player.mana < attacks.lightningbolt.mana){
+        document.getElementById("lightningbolt").disabled = true;
+        document.getElementById("lightningbolt").style.background = "rgba(0,0,0,0.4)";
+    }
+   
+
+     if(player.mana < attacks.icebolt.mana){
+        document.getElementById("icebolt").disabled = true;
+        document.getElementById("icebolt").style.background = "rgba(0,0,0,0.4)";
+    }
+     
+
+     if(player.mana < attacks.magicarrow.mana){
+        document.getElementById("magicarrow").disabled = true;
+        document.getElementById("magicarrow").style.background = "rgba(0,0,0,0.4)";
+    }
+    
+
+     if(player.mana < attacks.meteorstrike.mana){
+        document.getElementById("meteorstrike").disabled = true;
+        document.getElementById("meteorstrike").style.background = "rgba(0,0,0,0.4)";
+    }
+    
+
+     if(player.mana < attacks.combust.mana){
+        document.getElementById("combust").disabled = true;
+        document.getElementById("combust").style.background = "rgba(0,0,0,0.4)";
     }
 
-};
+    
+     if( player.mana < attacks.tornado.mana){
+        document.getElementById("tornado").disabled = true;
+        document.getElementById("tornado").style.background = "rgba(0,0,0,0.4)";
+    }
+    
 
-var observer = new MutationObserver(callback);
-observer.observe(playerMana, config);
+     if(player.mana < attacks.firestorm.mana){
+        document.getElementById("firestorm").disabled = true;
+        document.getElementById("firestorm").style.background = "rgba(0,0,0,0.4)";
+     }
+
+     if(player.stamina < weaponAttacks.stick.stamina){
+        document.getElementById("stick").disabled = true;
+        document.getElementById("stick").style.background = "rgba(0,0,0,0.4)";
+     }
+
+     if(player.stamina < weaponAttacks.dagger.stamina){
+        document.getElementById("dagger").disabled = true;
+        document.getElementById("dagger").style.background = "rgba(0,0,0,0.4)";
+     }
+
+     if(player.stamina < weaponAttacks.bow.stamina){
+        document.getElementById("bow").disabled = true;
+        document.getElementById("bow").style.background = "rgba(0,0,0,0.4)";
+     }
+
+     if(player.stamina < weaponAttacks.hammer.stamina){
+        document.getElementById("hammer").disabled = true;
+        document.getElementById("hammer").style.background = "rgba(0,0,0,0.4)";
+     }
+
+     if(player.stamina < weaponAttacks.axe.stamina){
+        document.getElementById("axe").disabled = true;
+        document.getElementById("axe").style.background = "rgba(0,0,0,0.4)";
+     }
+
+     if(player.stamina < weaponAttacks.sword.stamina){
+        document.getElementById("sword").disabled = true;
+        document.getElementById("sword").style.background = "rgba(0,0,0,0.4)";
+     }
+
+
+}, 10);
