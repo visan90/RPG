@@ -28,6 +28,13 @@ body {
     background-size: cover;
     cursor: url("../img/cursor.png"), auto;
 }
+
+#finalMessage{
+    text-align: center;
+    font-family: 'disposableDroid';
+    font-size: 50px;
+    margin-top: 5%;
+}
 #fight{
     font-family: 'ancient';
     z-index:999;
@@ -78,14 +85,13 @@ body {
     background: url(../img/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-
     position: fixed;
     top: 0;
     left: 0;
 
     &__wrap {
         width: 300px;
-        height:400px;
+        height: auto;
         background: rgba(255,255,255,0.7);
         text-align: center;
         margin: 10% auto;
@@ -186,8 +192,15 @@ body {
 #info{
     font-size: 18px;
     background: rgba(255,255,255,0.7);
-    height:250px;
+    min-height: 250px;
+    height: auto;
     padding: 10px;
+}
+#damageReceived{
+    color: red;
+}
+#damageInfo{
+    color: blue;
 }
 .weaponsAttacks{
     padding: 20px;
