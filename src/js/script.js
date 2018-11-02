@@ -422,6 +422,7 @@ document.getElementById("fight").addEventListener("click", function () {
             document.removeEventListener("click", iceCondition);
             document.getElementById("close").onclick = function () {
                 currentEnemy = enemies.wind_elemental;
+                enemyImage.src = "dist/img/wind_elemental.png";
                 player.mana = 250;
                 player.health = 500;
                 player.stamina = 200;
