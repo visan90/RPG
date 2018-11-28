@@ -1,7 +1,5 @@
-'use strict';
-
 //Player starting stats
-var player = {
+let player = {
     health: 150,
     mana: 150,
     stamina: 150,
@@ -10,10 +8,10 @@ var player = {
 };
 
 //Empty object to asign enemies to
-var currentEnemy = {};
+let currentEnemy = {};
 
 //Object containing all the enemies
-var enemies = {
+let enemies = {
     gnome: {
         health: 100,
         level: 1,
@@ -44,13 +42,13 @@ var enemies = {
     }
 };
 
-var attacks = {
+let attacks = {
     magicarrow: {
         name: 'Magic Arrow',
         damage: 5,
         damageMultiplier: 0.2,
         type: 'air',
-        mana: 10,
+        mana: 8,
         cooldown: 5000
     },
     fireball: {
@@ -58,7 +56,7 @@ var attacks = {
         damage: 10,
         damageMultiplier: 0.2,
         type: 'fire',
-        mana: 20,
+        mana: 15,
         cooldown: 5000
     },
     icebolt: {
@@ -74,29 +72,29 @@ var attacks = {
         damage: 15,
         damageMultiplier: 0.2,
         type: 'earth',
-        mana: 25,
+        mana: 20,
         cooldown: 8000
     },
     icerain: {
         name: 'Ice Rain',
         damage: 20,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.3,
         type: 'water',
-        mana: 28,
+        mana: 25,
         cooldown: 9000
     },
     meteorstrike: {
         name: 'Meteor Strike',
         damage: 25,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.3,
         type: 'earth',
-        mana: 35,
+        mana: 30,
         cooldown: 10000
     },
     combust: {
         name: 'Combust',
         damage: 25,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.25,
         type: 'fire',
         mana: 30,
         cooldown: 12000
@@ -104,7 +102,7 @@ var attacks = {
     lightningbolt: {
         name: 'Lightning Bolt',
         damage: 30,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.3,
         type: 'air',
         mana: 40,
         cooldown: 12000
@@ -112,7 +110,7 @@ var attacks = {
     blizzard: {
         name: 'Blizzard',
         damage: 35,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.4,
         type: 'water',
         mana: 50,
         cooldown: 15000
@@ -120,7 +118,7 @@ var attacks = {
     tornado: {
         name: 'Tornado',
         damage: 35,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.4,
         type: 'air',
         mana: 50,
         cooldown: 15000
@@ -128,111 +126,111 @@ var attacks = {
     firestorm: {
         name: 'Firestorm',
         damage: 40,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.35,
         type: 'fire',
-        mana: 65,
+        mana: 60,
         cooldown: 18000
     },
     implosion: {
         name: 'Implosion',
         damage: 55,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.35,
         type: 'earth',
-        mana: 80,
+        mana: 70,
         cooldown: 20000
     }
 
 };
 
-var weaponAttacks = {
+let weaponAttacks = {
     stick: {
         name: 'stick',
         damage: 5,
-        damageMultiplier: 0.2,
-        stamina: 10,
+        damageMultiplier: 0.25,
+        stamina: 8,
         cooldown: 5000
     },
     dagger: {
         name: 'dagger',
         damage: 7,
-        damageMultiplier: 0.2,
-        stamina: 15,
+        damageMultiplier: 0.25,
+        stamina: 12,
         cooldown: 5000
     },
     bow: {
         name: 'bow',
         damage: 10,
-        damageMultiplier: 0.2,
-        stamina: 20,
+        damageMultiplier: 0.3,
+        stamina: 15,
         cooldown: 7000
     },
     hammer: {
         name: 'hammer',
         damage: 15,
-        damageMultiplier: 0.2,
-        stamina: 30,
+        damageMultiplier: 0.3,
+        stamina: 25,
         cooldown: 10000
     },
     axe: {
         name: 'axe',
         damage: 20,
-        damageMultiplier: 0.2,
-        stamina: 35,
+        damageMultiplier: 0.4,
+        stamina: 30,
         cooldown: 14000
     },
     sword: {
         name: 'sword',
         damage: 25,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.4,
         stamina: 35,
         cooldown: 18000
     }
 };
 
 //Variables
-var playerHealth = document.getElementById("health");
-var enemyHealth = document.getElementById("enemyHealth");
-var playerMana = document.getElementById("mana");
-var playerStamina = document.getElementById("stamina");
-var playerIntelligence = document.getElementById("intelligence");
-var playerStrength = document.getElementById("strength");
-var spells = document.querySelectorAll(".spell");
-var weapons = document.querySelectorAll(".weapon");
-var displayChangeStats = document.getElementById("changeStats");
-var enemyImage = document.getElementById("enemyImg");
-var getFireball = document.getElementById("fireball");
-var getCombust = document.getElementById("combust");
-var getFirestorm = document.getElementById("firestorm");
-var getIcebolt = document.getElementById("icebolt");
-var getIcerain = document.getElementById("icerain");
-var getBlizzard = document.getElementById("blizzard");
-var getMagicArrow = document.getElementById("magicarrow");
-var getLightningbolt = document.getElementById("lightningbolt");
-var getTornado = document.getElementById("tornado");
-var getEarthquake = document.getElementById("earthquake");
-var getMeteorstrike = document.getElementById("meteorstrike");
-var getImplosion = document.getElementById("implosion");
-var getStick = document.getElementById("stick");
-var getDagger = document.getElementById("dagger");
-var getBow = document.getElementById("bow");
-var getHammer = document.getElementById("hammer");
-var getAxe = document.getElementById("axe");
-var getSword = document.getElementById("sword");
-var remainingPoints = 5;
-var currentPlayerHealth = 150;
-var currentPlayerMana = 150;
-var currentPlayerStamina = 150;
-var currentEnemyHealth = 100;
+const playerHealth = document.getElementById("health");
+const enemyHealth = document.getElementById("enemyHealth");
+const playerMana = document.getElementById("mana");
+const playerStamina = document.getElementById("stamina");
+const playerIntelligence = document.getElementById("intelligence");
+const playerStrength = document.getElementById("strength");
+const spells = document.querySelectorAll(".spell");
+const weapons = document.querySelectorAll(".weapon");
+const displayChangeStats = document.getElementById("changeStats");
+const enemyImage = document.getElementById("enemyImg");
+const getFireball = document.getElementById("fireball");
+const getCombust = document.getElementById("combust");
+const getFirestorm = document.getElementById("firestorm");
+const getIcebolt = document.getElementById("icebolt");
+const getIcerain = document.getElementById("icerain");
+const getBlizzard = document.getElementById("blizzard");
+const getMagicArrow = document.getElementById("magicarrow");
+const getLightningbolt = document.getElementById("lightningbolt");
+const getTornado = document.getElementById("tornado");
+const getEarthquake = document.getElementById("earthquake");
+const getMeteorstrike = document.getElementById("meteorstrike");
+const getImplosion = document.getElementById("implosion");
+const getStick = document.getElementById("stick");
+const getDagger = document.getElementById("dagger");
+const getBow = document.getElementById("bow");
+const getHammer = document.getElementById("hammer");
+const getAxe = document.getElementById("axe");
+const getSword = document.getElementById("sword");
+let remainingPoints = 5;
+let currentPlayerHealth = 150;
+let currentPlayerMana = 150;
+let currentPlayerStamina = 150;
+let currentEnemyHealth = 100;
 
 displayChangeStats.style.display = "none";
 
 //Used before player starts game
 function disableButtons() {
-    spells.forEach(function (spell) {
+    spells.forEach(spell => {
         spell.disabled = true;
         spell.style.background = "rgba(0,0,0,0.4)";
     });
-    weapons.forEach(function (weapon) {
+    weapons.forEach(weapon => {
         weapon.disabled = true;
         weapon.style.background = "rgba(0,0,0,0.4)";
     });
@@ -242,11 +240,11 @@ window.onload = disableButtons;
 
 //Enables attacks when player clicks on start fight or when a new fight starts
 function enableAttacks() {
-    spells.forEach(function (spell) {
+    spells.forEach(spell => {
         spell.disabled = false;
         spell.style.background = "transparent";
     });
-    weapons.forEach(function (weapon) {
+    weapons.forEach(weapon => {
         weapon.disabled = false;
         weapon.style.background = "transparent";
     });
@@ -280,11 +278,11 @@ function displayPlayerStrength() {
 //Show change stats modal after winning fight
 function changeStats() {
     displayChangeStats.style.display = "block";
-    var currentIntelligence = document.getElementById("currentIntelligence");
-    var currentStrength = document.getElementById("currentStrength");
-    var addIntelligence = document.getElementById("addIntelligence");
-    var addStrength = document.getElementById("addStrength");
-    var addPoints = document.querySelectorAll(".addPoints");
+    const currentIntelligence = document.getElementById("currentIntelligence");
+    const currentStrength = document.getElementById("currentStrength");
+    const addIntelligence = document.getElementById("addIntelligence");
+    const addStrength = document.getElementById("addStrength");
+    const addPoints = document.querySelectorAll(".addPoints");
     document.getElementById("remainingPoints").innerHTML = "Remaining points: " + remainingPoints;
     currentIntelligence.innerHTML = "Intelligence: " + player.intelligence;
     currentStrength.innerHTML = "Strength: " + player.strength;
@@ -305,7 +303,7 @@ function changeStats() {
     addStrength.disabled = false;
 
     // disables the add attributes buttons when remaining points are 0
-    addPoints.forEach(function (point) {
+    addPoints.forEach(point => {
         point.addEventListener("click", function () {
             if (remainingPoints === 0) {
                 addIntelligence.disabled = true;
@@ -334,7 +332,7 @@ document.getElementById("fight").addEventListener("click", function () {
 
     //Interval and math calculations for enemies damage
     setInterval(function () {
-        var damageEnemy = Math.floor(Math.random() * (currentEnemy.damage - currentEnemy.damage / 2 + 1)) + currentEnemy.damage / 2;
+        let damageEnemy = Math.floor(Math.random() * (currentEnemy.damage - currentEnemy.damage / 2 + 1)) + currentEnemy.damage / 2;
         player.health = player.health - damageEnemy;
         document.getElementById("damageReceived").innerHTML = "The enemy did: " + damageEnemy + " damage";
         displayPlayerHealth();
@@ -364,7 +362,7 @@ document.getElementById("fight").addEventListener("click", function () {
         if (enemies.gnome.health <= 0) {
             //variables for proper displayed length of status bars
             currentPlayerHealth = 300;
-            currentPlayerMana = 150;
+            currentPlayerMana = 180;
             currentPlayerStamina = 150;
             currentEnemyHealth = 200;
 
@@ -373,7 +371,7 @@ document.getElementById("fight").addEventListener("click", function () {
             document.getElementById("close").onclick = function () {
                 currentEnemy = enemies.fire_lizard;
                 enemyImage.src = "dist/img/fire_lizard.png";
-                player.mana = 150;
+                player.mana = 180;
                 player.health = 300;
                 player.stamina = 150;
                 refreshStats();
@@ -473,7 +471,7 @@ function castSpell(argType, argDamage, argName, argId, argCooldown, argMana, arg
         currentEnemy.health = currentEnemy.health - Math.floor(argDamage + player.intelligence * argMultiplier);
         document.getElementById("damageInfo").innerHTML = argName + " did: " + Math.floor(argDamage + player.intelligence * argMultiplier) + " damage";
     }
-    var spellAttack = argId;
+    let spellAttack = argId;
     spellAttack.disabled = true;
     spellAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {
@@ -488,7 +486,7 @@ function castSpell(argType, argDamage, argName, argId, argCooldown, argMana, arg
 function swingWeapon(argDamage, argName, argId, argCooldown, argStamina, argMultiplier) {
     currentEnemy.health = currentEnemy.health - Math.floor(argDamage + player.strength * argMultiplier);
     document.getElementById("damageInfo").innerHTML = "The " + argName + " did: " + Math.floor(argDamage + player.strength * argMultiplier) + " damage";
-    var weaponAttack = argId;
+    let weaponAttack = argId;
     weaponAttack.disabled = true;
     weaponAttack.style.background = "rgba(0,0,0,0.4)";
     setTimeout(function () {

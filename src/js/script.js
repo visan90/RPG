@@ -48,7 +48,7 @@ let attacks = {
         damage: 5,
         damageMultiplier: 0.2,
         type: 'air',
-        mana: 10,
+        mana: 8,
         cooldown: 5000
     },
     fireball: {
@@ -56,7 +56,7 @@ let attacks = {
         damage: 10,
         damageMultiplier: 0.2,
         type: 'fire',
-        mana: 20,
+        mana: 15,
         cooldown: 5000
     },
     icebolt: {
@@ -72,29 +72,29 @@ let attacks = {
         damage: 15,
         damageMultiplier: 0.2,
         type: 'earth',
-        mana: 25,
+        mana: 20,
         cooldown: 8000
     },
     icerain: {
         name: 'Ice Rain',
         damage: 20,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.3,
         type: 'water',
-        mana: 28,
+        mana: 25,
         cooldown: 9000
     },
     meteorstrike: {
         name: 'Meteor Strike',
         damage: 25,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.3,
         type: 'earth',
-        mana: 35,
+        mana: 30,
         cooldown: 10000
     },
     combust: {
         name: 'Combust',
         damage: 25,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.25,
         type: 'fire',
         mana: 30,
         cooldown: 12000
@@ -102,7 +102,7 @@ let attacks = {
     lightningbolt: {
         name: 'Lightning Bolt',
         damage: 30,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.3,
         type: 'air',
         mana: 40,
         cooldown: 12000
@@ -110,7 +110,7 @@ let attacks = {
     blizzard: {
         name: 'Blizzard',
         damage: 35,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.4,
         type: 'water',
         mana: 50,
         cooldown: 15000
@@ -118,7 +118,7 @@ let attacks = {
     tornado: {
         name: 'Tornado',
         damage: 35,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.4,
         type: 'air',
         mana: 50,
         cooldown: 15000
@@ -126,17 +126,17 @@ let attacks = {
     firestorm: {
         name: 'Firestorm',
         damage: 40,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.35,
         type: 'fire',
-        mana: 65,
+        mana: 60,
         cooldown: 18000
     },
     implosion: {
         name: 'Implosion',
         damage: 55,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.35,
         type: 'earth',
-        mana: 80,
+        mana: 70,
         cooldown: 20000
     }
 
@@ -146,42 +146,42 @@ let weaponAttacks = {
     stick: {
         name: 'stick',
         damage: 5,
-        damageMultiplier: 0.2,
-        stamina: 10,
+        damageMultiplier: 0.25,
+        stamina: 8,
         cooldown: 5000
     },
     dagger: {
         name: 'dagger',
         damage: 7,
-        damageMultiplier: 0.2,
-        stamina: 15,
+        damageMultiplier: 0.25,
+        stamina: 12,
         cooldown: 5000
     },
     bow: {
         name: 'bow',
         damage: 10,
-        damageMultiplier: 0.2,
-        stamina: 20,
+        damageMultiplier: 0.3,
+        stamina: 15,
         cooldown: 7000
     },
     hammer: {
         name: 'hammer',
         damage: 15,
-        damageMultiplier: 0.2,
-        stamina: 30,
+        damageMultiplier: 0.3,
+        stamina: 25,
         cooldown: 10000
     },
     axe: {
         name: 'axe',
         damage: 20,
-        damageMultiplier: 0.2,
-        stamina: 35,
+        damageMultiplier: 0.4,
+        stamina: 30,
         cooldown: 14000
     },
     sword: {
         name: 'sword',
         damage: 25,
-        damageMultiplier: 0.2,
+        damageMultiplier: 0.4,
         stamina: 35,
         cooldown: 18000
     }
@@ -363,7 +363,7 @@ document.getElementById("fight").addEventListener("click", function () {
         if (enemies.gnome.health <= 0) {
             //variables for proper displayed length of status bars
             currentPlayerHealth = 300;
-            currentPlayerMana = 150;
+            currentPlayerMana = 180;
             currentPlayerStamina = 150;
             currentEnemyHealth = 200;
 
@@ -372,7 +372,7 @@ document.getElementById("fight").addEventListener("click", function () {
             document.getElementById("close").onclick = function () {
                 currentEnemy = enemies.fire_lizard;
                 enemyImage.src = "dist/img/fire_lizard.png";
-                player.mana = 150;
+                player.mana = 180;
                 player.health = 300;
                 player.stamina = 150;
                 refreshStats();
